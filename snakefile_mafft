@@ -1,0 +1,9 @@
+OGG, = glob_wildcards("{ogg}.pep")
+
+rule all:
+	input: expand("{ogg}.aln",ogg=OGG)
+
+rule muscle:
+	input: "{ogg}.pep"
+	output: "{ogg}.aln"
+	shell: "mafft {input} > {output}"
