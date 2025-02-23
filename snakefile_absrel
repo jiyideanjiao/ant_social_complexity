@@ -1,0 +1,9 @@
+OGG, = glob_wildcards("{ogg}.phy")
+
+rule all:
+	input: expand("{ogg}.out",ogg=OGG)
+
+rule muscle:
+	input: "{ogg}.phy"
+  output: "{ogg}.out"
+  shell: "hyphy absrel --code Universal --alignment {input} --tree {wildcards.ogg}.tre --branches All > {output}"
