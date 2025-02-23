@@ -1,5 +1,4 @@
 OGG, = glob_wildcards("{ogg}.codon")
-THREADS = 1
 
 rule all:
     input: expand("{ogg}.txt",ogg=OGG)
@@ -7,5 +6,4 @@ rule all:
 rule merge:
     input: "{ogg}.codon"
     output: "{ogg}.txt"
-    threads: 1
     shell: "python get_species_name.py {input} {output}"
