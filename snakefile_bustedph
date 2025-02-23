@@ -5,5 +5,5 @@ rule all:
 
 rule muscle:
 	input: "{ogg}.phy"
-  output: "{ogg}.out"
-  shell: "hyphy BUSTED-PH.bf --code Universal --alignment {input} --tree {wildcards.ogg}.tre --branches foreground --comparison background > {output}"
+	output: "{ogg}.out"
+	shell: "hyphy BUSTED-PH.bf --code Universal --alignment {input} --tree {wildcards.ogg}.tre --branches foreground --comparison background > {output}"
