@@ -1,0 +1,9 @@
+OGG, = glob_wildcards("{ogg}.txt")
+
+rule all:
+    input: expand("{ogg}.tre",ogg=OGG)
+
+rule trim:
+    input: "{ogg}.txt"
+    output: "{ogg}.tre"
+    shell: "Rscript trimmed_tree.R {input} > {output}"
