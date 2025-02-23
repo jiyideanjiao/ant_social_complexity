@@ -1,0 +1,9 @@
+OGG, = glob_wildcards("{ogg}.hmm")
+
+rule all:
+    input: expand("{ogg}.out",ogg=OGG)
+
+rule fastp:
+    input: "{ogg}.hmm"
+    output: "{ogg}.out"
+    shell: "hmmsearch --tblout {wildcards.ogg}.tbl -o {output} {input} ant_genome.fa"
